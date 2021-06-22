@@ -44,7 +44,7 @@ public class Algorithms {
                     break;
                 }
             }
-            // Flip any thing that is greater than k - O(n)
+            // Flip any thing that is greater than k, O(n)
             for (int i = 0; i < n; i++) {
                 if (numberSequence[i] > k) {
                     arrowSequence[i] = !arrowSequence[i];
@@ -67,7 +67,7 @@ public class Algorithms {
                 }
             } else if (i != n - 1) { // middle
                 if ((arrowSequence[i] && (numberSequence[i] > numberSequence[i - 1]))
-                        || (!arrowSequence[i] && (numberSequence[i] > numberSequence[i - 1]))) {
+                        || (!arrowSequence[i] && (numberSequence[i] > numberSequence[i + 1]))) {
                     if (numberSequence[i] > k) k = numberSequence[i];
                 }
             } else { // last
