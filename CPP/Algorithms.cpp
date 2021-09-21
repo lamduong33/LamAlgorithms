@@ -112,7 +112,7 @@ public:
     ** Heap's Algorithm:
     ** ----------------------------------------------------------------------
     ** Find all permutations of a given integer, n. This function is used to
-    ** set up the global array required by the
+    ** set up the global array required by the algorithm.
     */
     static void heapPermutation(const int n)
     {
@@ -123,6 +123,10 @@ public:
         }
         heapPermute(n, globalArray);
     }
+
+    /*
+    ** Recursive function that does the actual work for Heap's Algorithm.
+     */
     static void heapPermute(const int n, std::vector<int> &array)
     {
         if (n == 1)
