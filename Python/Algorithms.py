@@ -1,9 +1,8 @@
 #!/usr/bin/env python3
 
-import numpy  # for performance reasons
-
 def johnsonTrotter(n: int) -> list:
-    """Johnson-Trotter Algorithm"""
+    """Johnson-Trotter Algorithm:
+    Given a number, generate a permutation sequence from 1 to n"""
     k = n
     result = list()
     number_sequence = dict()
