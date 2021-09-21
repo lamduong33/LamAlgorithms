@@ -41,15 +41,18 @@ public:
                     bool tempArrow = numberSequence[pointedIndex].second;
 
                     numberSequence[pointedIndex].first = numberSequence[i].first;
-                    numberSequence[pointedIndex].second = numberSequence[i].second;
+                    numberSequence[pointedIndex].second =
+                        numberSequence[i].second;
                     numberSequence[i].first = tempNum;
                     numberSequence[i].second = tempArrow;
                     break;
                 }
             }
             // Flip any thing that is greater than k, O(n)
-            for (int i = 0; i < n; i++) {
-                if (numberSequence[i].first > k) {
+            for (int i = 0; i < n; i++)
+            {
+                if (numberSequence[i].first > k)
+                {
                     numberSequence[i].second = !numberSequence[i].second;
                 }
             }
@@ -66,7 +69,7 @@ public:
     getNumbers(const std::vector<std::pair<int, bool>> &numberSequence)
     {
         auto result = new std::vector<int>(); // allocate on heap
-        for (int i = 0; i < numberSequence.size(); i++)
+        for (int i = 0; i < (int)numberSequence.size(); i++)
         {
             (*result).push_back(numberSequence[i].first);
         }
@@ -78,28 +81,86 @@ public:
     static int findK(std::vector<std::pair<int, bool>> numberSequence)
     {
         int k = -1;
-        for (int i = 0; i < numberSequence.size(); i++)
+        for (int i = 0; i < (int)numberSequence.size(); i++)
         {
             int num = numberSequence[i].first;
             bool arrow = numberSequence[i].second;
             if (i == 0)
             {
                 if (!arrow && (num > numberSequence[i + 1].first))
-                    if (num > k) k = num;
+                    if (num > k)
+                        k = num;
             }
-            else if (i != numberSequence.size() - 1)
+            else if (i != (int)numberSequence.size() - 1)
             {
-                if (((arrow && (num > numberSequence[i-1].first)) ||
-                    (!arrow && (num > numberSequence[i+1].first))))
-                    if(num > k) k = num;
+                if (((arrow && (num > numberSequence[i - 1].first)) ||
+                     (!arrow && (num > numberSequence[i + 1].first))))
+                    if (num > k)
+                        k = num;
             }
             else
             {
                 if (arrow && (num > numberSequence[i - 1].first))
-                   if (num > k) k = num;
+                    if (num > k)
+                        k = num;
             }
         }
         return k;
     }
+
+    /*
+    ** Heap's Algorithm:
+    ** ----------------------------------------------------------------------
+    ** Find all permutations of a given integer, n. This function is used to
+    ** set up the global array required by the
+    */
+    static void heapPermutation(const int n)
+    {
+        std::vector<int> globalArray;
+        for (int i = 1; i <= n; i++)
+        {
+            globalArray.push_back(i);
+        }
+        heapPermute(n, globalArray);
+    }
+    static void heapPermute(const int n, std::vector<int> &array)
+    {
+        if (n == 1)
+        {
+            for (int i = 0; i < (int)array.size(); i++)
+            {
+                std::cout << array[i];
+            }
+            std::cout << std::endl;
+        }
+        else
+        {
+            for (int i = 1; i <= n; i++)
+            {
+                heapPermute(n - 1, array);
+                if (n % 2 != 0)
+                {
+                    auto temp = array[0];
+                    array[0] = array[n-1];
+                    array[n-1] = temp;
+                }
+                else
+                {
+                    auto temp = array[i-1];
+                    array[i-1] = array[n-1];
+                    array[n-1] = temp;
+                }
+            }
+        }
+    }
 };
 
+int main(int argc, char** argv)
+{
+    if (argc == 2)
+    {
+        int n = std::atoi(argv[argc-1]);
+        Algorithms::heapPermutation(n);
+    }
+    return 0;
+}
