@@ -11,7 +11,7 @@ CC = clang++
 TARGET = Algorithms
 all: $ (TARGET)
 $ (TARGET): $(TARGET).cpp
-	$(CC) $(CXXFLAGS) -o $(TARGET) $(TARGET).cpp
+	$(CC) $(CXXFLAGS) -o $(TARGET) $(TARGET).cpp -I $(TARGET).hpp
 clean:
 	$(RM) $(TARGET)
 
