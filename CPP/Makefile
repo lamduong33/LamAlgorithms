@@ -6,7 +6,7 @@
 # @version 0.1
 
 CXXFLAGS = -std=c++20 -g
-CC = g++
+CC = clang++
 
 TARGET = Algorithms
 all: $ (TARGET)
