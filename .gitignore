@@ -1,0 +1,20 @@
+*
+!.gitignore
+!Makefile
+!README.md
+
+# Only cpp and hpp files within CPP
+!CPP/
+CPP/*
+!CPP/*.cpp
+!CPP/*.hpp
+
+# Only java files within Java
+!include/
+include/*
+!include/*.java
+
+# Only py files within Python
+!tests/
+tests/*
+!tests/*.pyt
