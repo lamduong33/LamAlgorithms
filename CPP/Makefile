@@ -6,13 +6,17 @@
 # @version 0.1
 
 CXXFLAGS = -std=c++20 -g
-CC = clang++
+CXX = g++
 
 TARGET = Algorithms
+TESTS = AlgoTests
 all: $ (TARGET)
-$ (TARGET): $(TARGET).cpp
-	$(CC) $(CXXFLAGS) -o $(TARGET) $(TARGET).cpp -I $(TARGET).hpp
+$(TARGET): $(TARGET).cpp
+	$(CXX) $(CXXFLAGS) -o $(TARGET) $(TARGET).cpp -I $(TARGET).hpp
+tests: $(TESTS)
+$(TESTS): $(TESTS).cpp
+	$(CXX) $(CXXFLAGS) $(TESTS).cpp -o $(TESTS) $(TARGET).cpp
 clean:
-	$(RM) $(TARGET)
+	$(RM) $(TARGET) $(TESTS)
 
 # end
