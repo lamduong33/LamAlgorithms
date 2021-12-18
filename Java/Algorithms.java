@@ -58,26 +58,30 @@ public class Algorithms {
     }
 
     /* Helper method for johnsonTrotter() */
-    public static int greatestMobileNumber (int[] numberSequence, Boolean[] arrowSequence, int n) {
+    public static int greatestMobileNumber(int[] numberSequence, Boolean[] arrowSequence, int n) {
         int k = -1; // -1 is not found
         for (int i = 0; i < n; i++) {
             if (i == 0) { // first
                 if (!arrowSequence[i] && (numberSequence[i] > numberSequence[i + 1])) {
-                    if (numberSequence[i] > k) k = numberSequence[i];
+                    if (numberSequence[i] > k)
+                        k = numberSequence[i];
                 }
             } else if (i != n - 1) { // middle
                 if ((arrowSequence[i] && (numberSequence[i] > numberSequence[i - 1]))
                         || (!arrowSequence[i] && (numberSequence[i] > numberSequence[i + 1]))) {
-                    if (numberSequence[i] > k) k = numberSequence[i];
+                    if (numberSequence[i] > k)
+                        k = numberSequence[i];
                 }
             } else { // last
                 if (arrowSequence[i] && (numberSequence[i] > numberSequence[i - 1])) {
-                    if (numberSequence[i] > k) k = numberSequence[i];
+                    if (numberSequence[i] > k)
+                        k = numberSequence[i];
                 }
             }
         }
         return k;
     }
+
 
     public static void main(String[] args) {
         ArrayList<int[]> a = johnsonTrotter(4);
