@@ -5,10 +5,10 @@
 #include "Algorithms.hpp"
 
 /**
- * Johnson-Trotter algorithm
- *------------------------------------------------------------------------------
- * input: n, the length of the sequence of numbers
- * output: a vector containing all the permutations from 1 to n
+ * @brief Johnson-Trotter algorithm:
+ *
+ * @param n, the length of the sequence of numbers
+ * @returns a vector containing all the permutations from 1 to n
  */
 std::vector<std::vector<int>> Algorithms::johnsonTrotter(int n)
 {
@@ -114,10 +114,13 @@ int Algorithms::findK(std::vector<std::pair<int, bool>>& numberSequence)
 void Algorithms::heapPermutation(const int n)
 {
     std::vector<int> globalArray;
+
+    // Construct our first set of numbers
     for (int i = 1; i <= n; i++)
     {
         globalArray.push_back(i);
     }
+
     heapPermute(n, globalArray);
 }
 
@@ -153,14 +156,4 @@ void Algorithms::heapPermute(const int n, std::vector<int>& array)
             }
         }
     }
-}
-
-int main(int argc, char** argv)
-{
-    if (argc == 2)
-    {
-        int n = std::atoi(argv[argc - 1]);
-        Algorithms::heapPermutation(n);
-    }
-    return 0;
 }
