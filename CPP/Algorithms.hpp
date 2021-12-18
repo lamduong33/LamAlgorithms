@@ -9,7 +9,7 @@ namespace Algorithms // feel free to change this name if you ever want to use th
     std::vector<std::vector<int>> johnsonTrotter(int n);
     std::vector<int>
     getNumbers(const std::vector<std::pair<int, bool>>& numberSequence);
-    int findK(std::vector<std::pair<int, bool>> numberSequence);
+    int findK(std::vector<std::pair<int, bool>>& numberSequence);
 
     /*----------------------------------------------------------------------*/
     void heapPermutation(const int n);

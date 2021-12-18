@@ -3,6 +3,7 @@
 */
 
 #include "Algorithms.hpp"
+
 /**
  * Johnson-Trotter algorithm
  *------------------------------------------------------------------------------
@@ -73,7 +74,7 @@ Algorithms::getNumbers(const std::vector<std::pair<int, bool>>& numberSequence)
 
 /* Find the largest mobile element. If the bool in the pair is true, the
 arrow points left and points right if it's false.*/
-int Algorithms::findK(std::vector<std::pair<int, bool>> numberSequence)
+int Algorithms::findK(std::vector<std::pair<int, bool>>& numberSequence)
 {
     int k = -1;
     for (int i = 0; i < (int)numberSequence.size(); i++)
