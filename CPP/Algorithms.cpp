@@ -157,3 +157,13 @@ void Algorithms::heapPermute(const int n, std::vector<int>& array)
         }
     }
 }
+
+int main(int argc, char** argv)
+{
+    if (argc == 2)
+    {
+        int n = std::atoi(argv[argc - 1]);
+        Algorithms::heapPermutation(n);
+    }
+    return 0;
+}
