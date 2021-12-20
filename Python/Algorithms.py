@@ -57,4 +57,22 @@ def swapElements(t_list: list, index1: int, index2: int):
     t_list[index1] = t_list[index2];
     t_list[index2] = temp
 
-johnsonTrotter(3)
+def heapsAlgorithm(n: int):
+    globalArray = list(range(1,n+1))
+    heapsPermutation(n, globalArray)
+
+def heapsPermutation(n: int, globalArray: list[int]):
+    # Create list of numbers for permutation
+    if (n == 1):
+        print(globalArray)
+    else:
+        for i in range(1, n+1):
+            heapsPermutation(n-1, globalArray)
+            if (n%2 != 0):
+                swapElements(globalArray, 0, n-1)
+            else:
+                swapElements(globalArray, i-1, n-1)
+
+
+#johnsonTrotter(3)
+heapsAlgorithm(3)
