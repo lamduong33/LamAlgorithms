@@ -12,8 +12,8 @@ namespace Algorithms // feel free to change this name if you ever want to use th
     int findK(std::vector<std::pair<int, bool>>& numberSequence);
 
     /*----------------------------------------------------------------------*/
-    void heapPermutation(const int n);
-    void heapPermute(const int n, std::vector<int>& array);
+    void heapsAlgorithm(const int n);
+    void heapsPermutation(const int n, std::vector<int>& array);
 };
 
 #endif // ALGORITHMS_HPP

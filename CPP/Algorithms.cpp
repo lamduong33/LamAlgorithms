@@ -104,14 +104,13 @@ int Algorithms::findK(std::vector<std::pair<int, bool>>& numberSequence)
     return k;
 }
 
-
 /*
 ** Heap's Algorithm:
 ** ----------------------------------------------------------------------
 ** Find all permutations of a given integer, n. This function is used to
 ** set up the global array required by the algorithm.
 */
-void Algorithms::heapPermutation(const int n)
+void Algorithms::heapsAlgorithm(const int n)
 {
     std::vector<int> globalArray;
 
@@ -121,13 +120,13 @@ void Algorithms::heapPermutation(const int n)
         globalArray.push_back(i);
     }
 
-    heapPermute(n, globalArray);
+    heapsPermutation(n, globalArray);
 }
 
 /*
 ** Recursive function that does the actual work for Heap's Algorithm.
 */
-void Algorithms::heapPermute(const int n, std::vector<int>& array)
+void Algorithms::heapsPermutation(const int n, std::vector<int>& array)
 {
     if (n == 1)
     {
@@ -141,7 +140,7 @@ void Algorithms::heapPermute(const int n, std::vector<int>& array)
     {
         for (int i = 1; i <= n; i++)
         {
-            heapPermute(n - 1, array);
+            heapsPermutation(n - 1, array);
             if (n % 2 != 0)
             {
                 auto temp = array[0];
@@ -163,7 +162,7 @@ int main(int argc, char** argv)
     if (argc == 2)
     {
         int n = std::atoi(argv[argc - 1]);
-        Algorithms::heapPermutation(n);
+        Algorithms::heapsAlgorithm(n);
     }
     return 0;
 }
