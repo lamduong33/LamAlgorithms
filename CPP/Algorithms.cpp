@@ -5,11 +5,10 @@
 #include "Algorithms.hpp"
 
 /**
- * @brief Johnson-Trotter algorithm:
- *
+ * Johnson-Trotter algorithm
+ * @brief Find a list of permutations of n unique digits
  * @param n, the length of the sequence of numbers
- * @returns a vector containing all the permutations from 1 to n
- */
+ * @returns a vector containing all the permutations from 1 to n */
 std::vector<std::vector<int>> Algorithms::johnsonTrotter(int n)
 {
     int k = n;
@@ -104,28 +103,27 @@ int Algorithms::findK(std::vector<std::pair<int, bool>>& numberSequence)
     return k;
 }
 
-/*
-** Heap's Algorithm:
-** ----------------------------------------------------------------------
-** Find all permutations of a given integer, n. This function is used to
-** set up the global array required by the algorithm.
-*/
+/** Heap's Algorithm:
+ * @brief Find all permutations of a given integer, n. This function is used
+ * to set up the global array required by the algorithm.
+ * @param n the size of the permutation */
 void Algorithms::heapsAlgorithm(const int n)
 {
     std::vector<int> globalArray;
+    std::vector<std::vector<int>> result;
 
     // Construct our first set of numbers
     for (int i = 1; i <= n; i++)
     {
         globalArray.push_back(i);
     }
-
     heapsPermutation(n, globalArray);
 }
 
-/*
-** Recursive function that does the actual work for Heap's Algorithm.
-*/
+/**
+ * @brief Recursive function that does the actual work for Heap's Algorithm.
+ * @param n the size of the permutation
+ * @param array the global array that resulting permutation is */
 void Algorithms::heapsPermutation(const int n, std::vector<int>& array)
 {
     if (n == 1)
