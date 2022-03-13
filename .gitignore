@@ -10,11 +10,16 @@ CPP/*
 !CPP/*.hpp
 
 # Only java files within Java
-!include/
-include/*
-!include/*.java
+!Java/
+Java/*
+!Java/*.java
 
 # Only py files within Python
-!tests/
-tests/*
-!tests/*.pyt
+!Python/
+Python/*
+!Python/*.py
+
+# Only hs files within Python
+!Haskell/
+Haskell/*
+!Haskell/*.hs
