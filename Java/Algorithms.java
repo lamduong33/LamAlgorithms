@@ -82,7 +82,6 @@ public class Algorithms {
         return k;
     }
 
-
     public static void main(String[] args) {
         ArrayList<int[]> a = johnsonTrotter(4);
         for (int i = 0; i < a.size(); i++) {
