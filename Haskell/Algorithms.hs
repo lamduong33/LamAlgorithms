@@ -1,10 +1,10 @@
 -- Euclid's algorithm
-greatestCommonDivisor :: Integer -> Integer -> Integer
+greatestCommonDivisor :: Int -> Int-> Int
 greatestCommonDivisor a 0 = abs a
 greatestCommonDivisor a b = greatestCommonDivisor b (mod a b)
 
 -- Quick sort algorithm
-qsort :: [Integer] -> [Integer]
+qsort :: [Int] -> [Int]
 qsort [] = []
 qsort (n : ns) = qsort smaller ++ [n] ++ qsort bigger
   where
@@ -12,7 +12,7 @@ qsort (n : ns) = qsort smaller ++ [n] ++ qsort bigger
     bigger = [b | b <- ns, b > n]
 
 -- Fibonacci sequence
-fibonacci :: Integer -> Integer
+fibonacci :: Int-> Int
 fibonacci n
   | n == 0 = 0
   | n == 1 = 1
@@ -20,7 +20,7 @@ fibonacci n
 
 -- Johnson Trotter's Algorithm:
 -- Takes in a list of integers
--- johnsonTrotter :: Integer -> [Integer]
+johnsonTrotter :: Int -> [[Int]
 
 main :: IO ()
 main = print (fibonacci 20)
