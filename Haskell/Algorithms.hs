@@ -11,5 +11,15 @@ qsort (n : ns) = qsort smaller ++ [n] ++ qsort bigger
     smaller = [a | a <- ns, a <= n]
     bigger = [b | b <- ns, b > n]
 
+-- Fibonacci sequence
+fibonacci :: Integer -> Integer
+fibonacci n =
+  if n == 0 then 0
+  else if  n == 1 then 1
+  else fibonacci n-1 + fibonacci n-2
+
+-- Johnson Trotter's Algorithm:
+-- johnsonTrotter :: (Integer, Integer) -> [[Integer]]
+
 main :: IO ()
-main = print (greatestCommonDivisor 74224 1232)
+main = print (fibonacci 20)
