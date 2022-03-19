@@ -13,13 +13,14 @@ qsort (n : ns) = qsort smaller ++ [n] ++ qsort bigger
 
 -- Fibonacci sequence
 fibonacci :: Integer -> Integer
-fibonacci n =
-  if n == 0 then 0
-  else if  n == 1 then 1
-  else fibonacci n-1 + fibonacci n-2
+fibonacci n
+  | n == 0 = 0
+  | n == 1 = 1
+  | otherwise = fibonacci n-1 + fibonacci n-2
 
 -- Johnson Trotter's Algorithm:
--- johnsonTrotter :: (Integer, Integer) -> [[Integer]]
+-- Takes in a list of integers
+johnsonTrotter :: Integer -> [Integer]
 
 main :: IO ()
 main = print (fibonacci 20)
