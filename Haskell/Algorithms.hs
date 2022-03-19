@@ -16,11 +16,11 @@ fibonacci :: Integer -> Integer
 fibonacci n
   | n == 0 = 0
   | n == 1 = 1
-  | otherwise = fibonacci n-1 + fibonacci n-2
+  | otherwise = fibonacci (n-1) + fibonacci (n-2)
 
 -- Johnson Trotter's Algorithm:
 -- Takes in a list of integers
-johnsonTrotter :: Integer -> [Integer]
+-- johnsonTrotter :: Integer -> [Integer]
 
 main :: IO ()
 main = print (fibonacci 20)
