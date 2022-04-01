@@ -155,6 +155,10 @@ void Algorithms::heapsPermutation(const int n, std::vector<int>& array)
     }
 }
 
+int Algorithms::changeMaking(std::vector<int> denominations, int amount)
+{
+}
+
 int main(int argc, char** argv)
 {
     if (argc == 2)
