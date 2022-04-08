@@ -155,9 +155,36 @@ void Algorithms::heapsPermutation(const int n, std::vector<int>& array)
     }
 }
 
-int Algorithms::changeMaking(std::vector<int> denominations, int amount)
+int maxAmountCoinRow(std::vector<int>& coins, int n)
 {
+    if (n == 0)
+        return 0;
+    else if (n == 1)
+        return coins[0];
+    else
+        return std::max(coins[n] + maxAmountCoinRow(coins, n - 2),
+                        maxAmountCoinRow(coins, n - 1));
 }
+
+/**
+ * @brief There is a row of n coins whose values are some positive integers, c1,
+ * c2, ...., cn, not neccesarily distinct. The goal is to pick up the maximum
+ * amoutn of money subject to the constaint that no two coins adjacent in the
+ * inital row can be picked up.
+ * @param coins the coins may be non-unique and  */
+int Algorithms::coinRow(std::vector<int> coins)
+{
+    std::vector<int> result{0, coins[0]};
+    auto n = coins.size();
+    for (int i = 2; i < n; i++)
+    {
+        result.push_back(std::max(coins[i] + maxAmountCoinRow(coins, i - 2),
+                                  maxAmountCoinRow(coins, i - 1)));
+    }
+    return *result.end();
+}
+
+int Algorithms::changeMaking(std::vector<int> denominations, int amount) {}
 
 int main(int argc, char** argv)
 {

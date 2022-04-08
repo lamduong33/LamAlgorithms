@@ -18,6 +18,8 @@ void heapsPermutation(const int n, std::vector<int>& array);
 
 int changeMaking(std::vector<int> denominations, int amount);
 
+int coinRow(std::vector<int> coins);
+
 }; // namespace Algorithms
 
 #endif // ALGORITHMS_HPP
