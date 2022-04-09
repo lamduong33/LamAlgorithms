@@ -157,13 +157,13 @@ void Algorithms::heapsPermutation(const int n, std::vector<int>& array)
 
 /**
  * @brief There is a row of n coins whose values are some positive integers, c1,
- * c2, ...., cn, not neccesarily distinct. The goal is to pick up the maximum
- * amoutn of money subject to the constaint that no two coins adjacent in the
- * inital row can be picked up.
- * @param coins the coins may be non-unique and  */
+ * c2, ...., cn, not necessarily distinct. The goal is to pick up the maximum
+ * amount of money subject to the constraint that no two coins adjacent in the
+ * initial row can be picked up.
+ * @param coins non-unique and positive integers*/
 int Algorithms::coinRow(std::vector<int> coins)
 {
-    std::vector<int> result{0, coins[0]};
+    std::vector<int> result{0, coins[0]}; // the memoization in
     auto n = coins.size();
     for (int i = 2; i < n; i++)
     {
