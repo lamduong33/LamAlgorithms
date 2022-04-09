@@ -160,10 +160,10 @@ void Algorithms::heapsPermutation(const int n, std::vector<int>& array)
  * c2, ...., cn, not necessarily distinct. The goal is to pick up the maximum
  * amount of money subject to the constraint that no two coins adjacent in the
  * initial row can be picked up.
- * @param coins non-unique and positive integers*/
+ * @param coins non-unique and positive integers. */
 int Algorithms::coinRow(std::vector<int> coins)
 {
-    std::vector<int> result{0, coins[0]}; // the memoization in
+    std::vector<int> result{0, coins[0]}; // dynamic programming memoization
     auto n = coins.size();
     for (int i = 2; i < n; i++)
     {
