@@ -155,17 +155,6 @@ void Algorithms::heapsPermutation(const int n, std::vector<int>& array)
     }
 }
 
-int maxAmountCoinRow(std::vector<int>& coins, int n)
-{
-    if (n == 0)
-        return 0;
-    else if (n == 1)
-        return coins[0];
-    else
-        return std::max(coins[n] + maxAmountCoinRow(coins, n - 2),
-                        maxAmountCoinRow(coins, n - 1));
-}
-
 /**
  * @brief There is a row of n coins whose values are some positive integers, c1,
  * c2, ...., cn, not neccesarily distinct. The goal is to pick up the maximum
@@ -178,10 +167,9 @@ int Algorithms::coinRow(std::vector<int> coins)
     auto n = coins.size();
     for (int i = 2; i < n; i++)
     {
-        result.push_back(std::max(coins[i] + maxAmountCoinRow(coins, i - 2),
-                                  maxAmountCoinRow(coins, i - 1)));
+        result.push_back(std::max(coins[i] + result[i-2], result[i-1]));
     }
-    return *result.end();
+    return result[result.size()-1];
 }
 
 int Algorithms::changeMaking(std::vector<int> denominations, int amount) {}
@@ -191,7 +179,8 @@ int main(int argc, char** argv)
     if (argc == 2)
     {
         int n = std::atoi(argv[argc - 1]);
-        Algorithms::heapsAlgorithm(n);
+        // Insert arg here
     }
+    std::cout << Algorithms::coinRow(std::vector<int>{5,1,2,10,6,2});
     return 0;
 }
