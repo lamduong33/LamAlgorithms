@@ -20,12 +20,18 @@ fibonacci n
   | otherwise = fibonacci (n-1) + fibonacci (n-2)
   | otherwise = fibonacci (n -1) + fibonacci (n -2)
 
-coinRow :: [Int] -> Int -> Int
-coinRow coins (-1) = 0
-coinRow coins 0 = head coins
--- n is the index of the last element
-coinRow coins n =
-  max (coins !! n + coinRow coins (n -2)) (coinRow coins (n -1))
+-- Coin Row Problem: maximum amount of coins that could be picked up
+coinRow :: [Int] -> Int
+coinRow [] = 0
+coinRow coins =
+  maxCoinRow coins (length coins)
+
+-- The actual recurrence to solve the coin row problem using dynamic programming
+maxCoinRow :: [Int] -> Int -> Int
+maxCoinRow  coins (-1) = 0
+maxCoinRow  coins 0 = head coins
+maxCoinRow  coins n =
+  max (coins !! n + maxCoinRow  coins (n -2)) (maxCoinRow  coins (n -1))
 
 -- coinRow will take in a lsit of Coins [0..n]
 
@@ -33,6 +39,5 @@ coinRow coins n =
 -- Takes in a list of integers
 -- johnsonTrotter :: Integer -> [Integer]
 
-
 main :: IO ()
-main = print (coinRow [5,1,2,10,6,2] 5)
+main = print (coinRow [5,1,2,10,6,2])
