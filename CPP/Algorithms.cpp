@@ -167,12 +167,37 @@ int Algorithms::coinRow(std::vector<int> coins)
     auto n = coins.size();
     for (int i = 2; i < n; i++)
     {
-        result.push_back(std::max(coins[i] + result[i-2], result[i-1]));
+        result.push_back(std::max(coins[i] + result[i - 2], result[i - 1]));
     }
-    return result[result.size()-1];
+    return result[result.size() - 1];
 }
 
-int Algorithms::changeMaking(std::vector<int> denominations, int amount) {}
+int Algorithms::changeMaking(std::vector<int> denominations, int amount)
+{
+    std::vector<int> result{0};
+    for (int i = 0; i < amount; i++)
+    {
+        int temp = INT32_MAX, j = 1;
+        while (j <= denominations[denominations.size() - 1] &&
+               i >= denominations[j])
+        {
+            temp = std::min(result[i - denominations[j]], temp);
+            j++;
+        }
+        if (temp == INT32_MAX)
+            result[i] = temp;
+        else
+            result[i] = temp + 1;
+    }
+    if (result[amount] == INT32_MAX)
+    {
+        return -1;
+    }
+    else
+    {
+        return result[amount];
+    }
+}
 
 int main(int argc, char** argv)
 {
@@ -181,6 +206,6 @@ int main(int argc, char** argv)
         int n = std::atoi(argv[argc - 1]);
         // Insert arg here
     }
-    std::cout << Algorithms::coinRow(std::vector<int>{5,1,2,10,6,2});
+    std::cout << Algorithms::changeMaking(std::vector<int>{1, 5, 10, 25}, 6);
     return 0;
 }
