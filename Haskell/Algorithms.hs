@@ -12,6 +12,11 @@ qsort (n : ns) = qsort smaller ++ [n] ++ qsort bigger
     smaller = [a | a <- ns, a <= n]
     bigger = [b | b <- ns, b > n]
 
+-- Factorial
+factorial :: Int -> Int
+factorial 0 = 1
+factorial n = n * factorial(n-1)
+
 -- Fibonacci sequence
 fibonacci :: Int-> Int
 fibonacci n
