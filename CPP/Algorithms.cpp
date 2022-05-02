@@ -161,7 +161,7 @@ void Algorithms::heapsPermutation(const int n, std::vector<int>& array)
  * amount of money subject to the constraint that no two coins adjacent in the
  * initial row can be picked up.
  * @param coins non-unique and positive integers. */
-int Algorithms::coinRow(std::vector<int> coins)
+int Algorithms::coinRow(std::vector<int>& coins)
 {
     std::vector<int> result{0, coins[0]}; // dynamic programming memoization
     auto n = coins.size();
@@ -172,7 +172,7 @@ int Algorithms::coinRow(std::vector<int> coins)
     return result[result.size() - 1];
 }
 
-int Algorithms::changeMaking(std::vector<int> denominations, int amount)
+int Algorithms::changeMaking(std::vector<int>& denominations, int amount)
 {
     std::vector<int> result{0};
     for (int i = 0; i < amount; i++)
@@ -206,6 +206,8 @@ int main(int argc, char** argv)
         int n = std::atoi(argv[argc - 1]);
         // Insert arg here
     }
-    std::cout << Algorithms::changeMaking(std::vector<int>{1, 5, 10, 25}, 6);
+    auto vector = std::vector<int>{1,5,10,25};
+    std::cout << Algorithms::changeMaking(vector, 6);
+
     return 0;
 }

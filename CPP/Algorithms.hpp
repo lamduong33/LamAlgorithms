@@ -16,9 +16,9 @@ int findK(std::vector<std::pair<int, bool>>& numberSequence);
 void heapsAlgorithm(const int n);
 void heapsPermutation(const int n, std::vector<int>& array);
 
-int changeMaking(std::vector<int> denominations, int amount);
+int changeMaking(std::vector<int>& denominations, int amount);
 
-int coinRow(std::vector<int> coins);
+int coinRow(std::vector<int>& coins);
 
 }; // namespace Algorithms
 
