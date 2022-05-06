@@ -19,7 +19,7 @@ std::vector<std::vector<int>> Algorithms::johnsonTrotter(int n)
     {
         numberSequence.push_back(std::pair<int, bool>(i, true));
     }
-    result.push_back(getNumbers(numberSequence));
+    result.push_back(johnsonTrotterGetNumbers(numberSequence));
 
     while (k != -1)
     {
@@ -51,8 +51,8 @@ std::vector<std::vector<int>> Algorithms::johnsonTrotter(int n)
                 numberSequence[i].second = !numberSequence[i].second;
             }
         }
-        result.push_back(getNumbers(numberSequence));
-        k = findK(numberSequence);
+        result.push_back(johnsonTrotterGetNumbers(numberSequence));
+        k = johnsonTrotterFindK(numberSequence);
     }
 
     return result;
@@ -61,7 +61,7 @@ std::vector<std::vector<int>> Algorithms::johnsonTrotter(int n)
 /* Create a new vector that is a copy of the number of sequence with just
  * the numbers, and no boolean. */
 std::vector<int>
-Algorithms::getNumbers(const std::vector<std::pair<int, bool>>& numberSequence)
+Algorithms::johnsonTrotterGetNumbers(const std::vector<std::pair<int, bool>>& numberSequence)
 {
     auto result = new std::vector<int>(); // allocate on heap
     for (int i = 0; i < (int)numberSequence.size(); i++)
@@ -73,7 +73,7 @@ Algorithms::getNumbers(const std::vector<std::pair<int, bool>>& numberSequence)
 
 /* Find the largest mobile element. If the bool in the pair is true, the
 arrow points left and points right if it's false.*/
-int Algorithms::findK(std::vector<std::pair<int, bool>>& numberSequence)
+int Algorithms::johnsonTrotterFindK(std::vector<std::pair<int, bool>>& numberSequence)
 {
     int k = -1;
     for (int i = 0; i < (int)numberSequence.size(); i++)
@@ -206,7 +206,7 @@ int main(int argc, char** argv)
         int n = std::atoi(argv[argc - 1]);
         // Insert arg here
     }
-    auto vector = std::vector<int>{1,5,10,25};
+    auto vector = std::vector<int>{1, 5, 10, 25};
     std::cout << Algorithms::changeMaking(vector, 6);
 
     return 0;
