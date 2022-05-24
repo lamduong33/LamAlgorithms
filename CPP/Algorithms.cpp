@@ -5,6 +5,30 @@
 #include "Algorithms.hpp"
 
 /**
+ * Merge sort
+ * @brief Standard merge sort algorithm of a vector of ints */
+ void Algorithms::mergeSort(std::vector<int> &t_numbers)
+ {
+     if (t_numbers.size() == 2)
+     {
+         if (t_numbers[0] > t_numbers[1])
+         {
+             std::swap(t_numbers[0], t_numbers[1]);
+         }
+     }
+     else if (t_numbers.size() > 2)
+     {
+     }
+ }
+
+/**
+ * Counting sort:
+ * @brief Counting sort algorithm for a vector of ints. */
+void Algorithms::countingSort(std::vector<int>& t_numbers)
+ {
+ }
+
+/**
  * Johnson-Trotter algorithm
  * @brief Find a list of permutations of n unique digits
  * @param n, the length of the sequence of numbers
