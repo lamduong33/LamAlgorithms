@@ -24,3 +24,7 @@ Python/*
 Haskell/*
 !Haskell/*.hs
 !Haskell/Makefile
+
+!Scheme/
+Scheme/*
+!Scheme/*.scm
