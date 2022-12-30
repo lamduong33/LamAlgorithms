@@ -6,6 +6,8 @@ greatestCommonDivisor :: Int -> Int -> Int
 greatestCommonDivisor a 0 = abs a
 greatestCommonDivisor a b = greatestCommonDivisor b (mod a b)
 
+-- Factorial algorithm
+
 -- Quick sort algorithm
 qsort :: [Int] -> [Int]
 qsort []       = []
@@ -18,6 +20,10 @@ qsort (n : ns) = qsort smaller ++ [n] ++ qsort bigger
 factorial :: Int -> Int
 factorial 0 = 1
 factorial n = n * factorial (n - 1)
+
+factorialIter :: Int -> Int
+factorialIter 0 = 1
+factorialIter n = n
 
 -- Fibonacci sequence
 fibonacci :: Int -> Int
